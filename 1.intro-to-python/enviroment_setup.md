@@ -25,13 +25,12 @@ $ conda activate eads
 ```
 $ conda install -c anaconda scipy
 $ conda install -c conda-forge matplotlib
-$ conda install -c bioconda bitstring
 ```
 
 
 6. install JupyterLab and its extension
 ```
-$ conda install -c conda-forge jupyterlab
+$ conda install -c conda-forge jupyterlab==1.2.6
 $ conda install nodejs
 $ jupyter labextension install @lckr/jupyterlab_variableinspector
 $ jupyter labextension install @jupyterlab/toc
