@@ -2,5 +2,6 @@
 .idea
 .ipynb_checkpoints
 1.intro-to-python/.ipynb_checkpoints
+1.intro-to-python/.ipynb_checkpoints/*
 *.pptx
 2.stream-cipher/
