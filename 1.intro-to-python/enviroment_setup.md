@@ -1,28 +1,45 @@
 # Setting up environment
 
-1. download anaconda via https://www.anaconda.com/download
+1. download anaconda via https://www.anaconda.com/download and install it. If you need, the anaconda documentation (https://docs.anaconda.com/anaconda/install/) provides a step by step guide for the installation on any platform.
 
-2. create a conda environment
-```shell
-$ conda create --name eads python=3.6
+
+2. If you are on Windows, you just open **Anaconda Prompt**. On Linux or macOS open a **Terminal** and activate the base conda envirnment: 
 ```
-3. activate environment
-```shell
+$ conda activate base
+```
+
+
+3. create a new conda environment with name eads
+```
+$ conda create --name eads python=3.7
+```
+
+
+4. activate environment
+```
 $ conda activate eads
 ```
 
-4. install python  packages
-```shell
+
+5. install python  packages
+```
 $ conda install -c anaconda scipy
 $ conda install -c conda-forge matplotlib
 $ conda install -c bioconda bitstring
 ```
 
-5. install JupyterLab and its extension
-```shell
+
+6. install JupyterLab and its extension
+```
 $ conda install -c conda-forge jupyterlab
 $ conda install nodejs
 $ jupyter labextension install @lckr/jupyterlab_variableinspector
 $ jupyter labextension install @jupyterlab/toc
 $ jupyter labextension install @aquirdturtle/collapsible_headings
+```
+
+
+7. start JupyterLab:
+```
+$ jupyter lab
 ```
