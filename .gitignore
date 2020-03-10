@@ -1,6 +1,7 @@
 *~
 .idea
 .ipynb_checkpoints
-1.intro-to-python/.ipynb_checkpoints
-1.intro-to-python/.ipynb_checkpoints/*
-2.stream-cipher/
+1.intro-to-python/.ipynb_checkpoints/
+2.lfsr/
+3.stream-cipher/
+4./
