@@ -1,7 +1,13 @@
 *~
 .idea
+.gitignore.save
 .ipynb_checkpoints
 1.intro-to-python/.ipynb_checkpoints/
-2.lfsr/
+2.lfsr/.ipynb_checkpoints/
+2.lfsr/LFSR.ipynb
+2.lfsr/LFSR.png
+2.lfsr/lfsr.py
+2.lfsr/third-party-packages.md
 3.stream-cipher/
+work-in-progress/
 4./
