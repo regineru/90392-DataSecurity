@@ -10,12 +10,8 @@
 3.stream-cipher/.ipynb_checkpoints/
 3.stream-cipher/__pycache__/
 3.stream-cipher/A5-1/
-3.stream-cipher/A5_1.png
-3.stream-cipher/stream-cipher.png
-3.stream-cipher/stream-cipher.ipynb
-3.stream-cipher/lfsr.py
 3.stream-cipher/streamcipher.py
-3.stream-cipher/third-party-packages.md
 3.stream-cipher/bitstring.py
+4.block-cipher/
 work-in-progress/
 stuff/
