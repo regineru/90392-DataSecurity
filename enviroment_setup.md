@@ -13,7 +13,7 @@ $ conda activate base
 
 3. Now you can create a new conda environment named `eads` (that stands for elements of applied data security) by running the following command in the same Anaconda Prompt window or terminal:
 ```
-$ conda create --name eads python=3.7
+$ conda create --name eads
 ```
 
 
@@ -25,18 +25,18 @@ $ conda activate eads
 
 5. Now, you can install some python packages:
 ```
-$ conda install -c anaconda scipy
-$ conda install -c conda-forge matplotlib
+$ conda install scipy
+$ conda install matplotlib
+$ conda install pycryptodomex
 ```
 
 
 6. Then, you need to install JupyterLab as well as some of its useful extensions:
 ```
-$ conda install -c conda-forge jupyterlab==1.2.6
-$ conda install -c conda-forge ipympl==0.4.1
+$ conda install jupyterlab
+$ conda install ipympl
 $ conda install nodejs
-$ jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-matplotlib
-$ jupyter labextension install @lckr/jupyterlab_variableinspector
+$ jupyter labextension install @jupyter-widgets/jupyterlab-manager
 $ jupyter labextension install @jupyterlab/toc
 $ jupyter labextension install @aquirdturtle/collapsible_headings
 ```
