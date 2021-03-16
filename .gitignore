@@ -3,10 +3,8 @@
 .gitignore.save
 .ipynb_checkpoints/
 __pycache__/
-#1.intro-to-python/
-2.substitution-cipher/substitution_cipher.ipynb
-2.lfsr/
-3.stream-cipher/
-4.block-cipher/
+3.lfsr/
+4.stream-cipher/
+5.block-cipher/
 work in progress/
 
