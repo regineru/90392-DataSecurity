@@ -35,10 +35,6 @@ $ conda install pycryptodomex
 ```
 $ conda install jupyterlab
 $ conda install ipympl
-$ conda install nodejs
-$ jupyter labextension install @jupyter-widgets/jupyterlab-manager
-$ jupyter labextension install @jupyterlab/toc
-$ jupyter labextension install @aquirdturtle/collapsible_headings
 ```
 
 
