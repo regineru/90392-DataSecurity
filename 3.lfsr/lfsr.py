@@ -35,11 +35,9 @@ def berlekamp_massey(bits):
   return
 """
 
-class LFSR(object):   #denne returnerer feil
-    ''' class docstring '''
+class LFSR(object): 
 
     def __init__(self, poly, state=None):
-        ''' constructor docstring '''
 
         self.length = max(poly) 
         self.output = None
@@ -57,7 +55,8 @@ class LFSR(object):   #denne returnerer feil
         if state is None: 
             self.s = [True for i in range(max(poly))]
         else: 
-            self.s = [i == 1 for i in state]
+            self.s = [i == '1' for i in state]
+            print('State:', self.s)
     
     def __iter__(self): 
         return self
@@ -75,6 +74,7 @@ class LFSR(object):   #denne returnerer feil
     def run_steps(self, N=1): 
         list_of_bool = []
         for i in range(N):
+          print(self.__next__())
           list_of_bool.append(self.__next__())
         return list_of_bool 
     
@@ -84,7 +84,7 @@ class LFSR(object):   #denne returnerer feil
         return list_of_bool
 
     def __str__(self, list):
-      for b in islice(list, 7):
+      for b in islice(list, 8):
         print(f'{b:d}', end='')
 
 lfsr = LFSR([3, 1])
