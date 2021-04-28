@@ -3,6 +3,16 @@ from functools import reduce
 from operator import xor
 from itertools import islice
 
+
+def bin_to_int(fist_bin):
+  return int("".join(str(x) for x in fist_bin), 2)
+
+def int_to_bin(int_numb, N):
+  binary = [1 if digit == '1' else 0 for digit in bin(int_numb)[2:]]
+  return [0 for i in range(N - len(binary))] + binary
+
+
+
 def lfsr_generator(poly, state=None):  
   if state is None: 
     s = [True for i in range(max(poly)+1)]
@@ -45,17 +55,6 @@ def berlekamp_massey(bits):
   Q[N-1] = 1 
   r = 1
 
-  """"
-  print('====Attributes====')
-  print('N: ', N)
-  print('P: ', P)
-  print('m: ', m)
-  print('Q: ', Q)
-  print('r: ', r)
-
-  print('=====start======')
-  """
-
   for t in range(N):
     anded = []
     x_r = [0 for i in range(N)]
@@ -66,14 +65,6 @@ def berlekamp_massey(bits):
       P_inverted = P[::-1]
       anded.append(P_inverted[j] and bits[t-j])
       d = reduce(xor, np.array(anded))
-    
-    """
-    print('bt:', bit[t])
-    print('P:', P)
-    print('m:', m)
-    print('Q:', Q)
-    print('r:', r)
-    """
 
     if d == 1: 
       if 2 * m <= t:
@@ -137,36 +128,31 @@ class LFSR(object):
         self.feedback = None
 
         #self.poly = self.p
-        self.poly = [False for i in range(max(self.poly)+1)]
-        for i in range(len(self.p)):
+        self.poly = [False for i in range(max(poly)+1)]
+        for i in range(len(self.poly)):
             if i in poly:
                 self.poly[i] = True
         self.poly.reverse()
         self.poly.pop()
 
-        #self.state = self.s
         if state is None: 
             self.state = [True for i in range(max(poly))]
         else: 
           if type(state) is int:
-            """ Endre til bin istedenfor int
-            self.state = int_to_bin(self.state, max(self.poly) #int_to_bin? og hvorfor max?
+            self.state = int_to_bin(state, max(self.poly))
           self.state = [True if digit == 1 else False for digit in self.state]
-          """
-          self.state = [i == '1' for i in state]
-          print('State:', self.state)
     
     def __iter__(self): 
         return self
 
     def __next__(self): 
         anded = []
-        for i in range(len(self.p)):
-          anded.append(self.s[i] and self.p[i])
+        for i in range(len(self.poly)):
+          anded.append(self.state[i] and self.poly[i])
         fb = reduce(xor, anded)
-        self.output = self.s[0]
-        self.s.pop(0)
-        self.s.append(fb)
+        self.output = self.state[0]
+        self.state.pop(0)
+        self.state.append(fb)
         return self.output
 
     def run_steps(self, N=1): 
@@ -186,16 +172,9 @@ class LFSR(object):
         print(f'{b:d}', end='')
 
 """
-lfsr = LFSR([3, 1], '111')
-print(2*"\n",lfsr.cycle())
-print("\n")
-"""
-
-
-"""
-==============================
-
-
-class BerlekampMassey():
-  
+lfsr = LFSR([3, 1], state=0x5)
+bitstream = lfsr.cycle()
+print(bitstream)
+bm_poly = berlekamp_massey(bitstream)
+print(print_poly(bm_poly))
 """
