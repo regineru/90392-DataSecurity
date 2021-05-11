@@ -125,7 +125,7 @@ class LFSR(object):
 
         self.length = max(poly) 
         self.output = None
-        self.feedback = None
+        self.feedback = 0
 
         #self.poly = self.p
         self.poly = [False for i in range(max(poly)+1)]
@@ -149,16 +149,15 @@ class LFSR(object):
         anded = []
         for i in range(len(self.poly)):
           anded.append(self.state[i] and self.poly[i])
-        fb = reduce(xor, anded)
+        self.feedback = reduce(xor, anded)
         self.output = self.state[0]
         self.state.pop(0)
-        self.state.append(fb)
+        self.state.append(self.feedback)
         return self.output
 
     def run_steps(self, N=1): 
         list_of_bool = []
         for i in range(N):
-          #print(self.__next__())
           list_of_bool.append(self.__next__())
         return list_of_bool 
     
