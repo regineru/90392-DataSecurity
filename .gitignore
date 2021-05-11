@@ -3,7 +3,6 @@
 .gitignore.save
 .ipynb_checkpoints/
 __pycache__/
-4.stream-cipher/
 5.block-cipher/
 work in progress/
 
