@@ -3,15 +3,12 @@ from functools import reduce
 from operator import xor
 from itertools import islice
 
-
 def bin_to_int(fist_bin):
   return int("".join(str(x) for x in fist_bin), 2)
 
 def int_to_bin(int_numb, N):
   binary = [1 if digit == '1' else 0 for digit in bin(int_numb)[2:]]
   return [0 for i in range(N - len(binary))] + binary
-
-
 
 def lfsr_generator(poly, state=None):  
   if state is None: 
